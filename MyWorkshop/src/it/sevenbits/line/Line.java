@@ -22,6 +22,6 @@ public class Line {
     public double getLenght(){
         int dx = A.getX() - B.getX();
         int dy = A.getY() - B.getY();
-        return Math.sqrt(dx*dx+dy*dy);
+        return Math.sqrt(Math.pow(dx,2)+Math.pow(dy,2));
     }
 }
