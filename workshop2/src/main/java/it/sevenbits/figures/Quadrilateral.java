@@ -1,29 +1,34 @@
 package it.sevenbits.figures;
 
+import it.sevenbits.exceptions.QuadrilateralException;
+
 /**
  * Class Quadrilateral
  */
 public class Quadrilateral implements Polygon {
 
-    /** Side a */
+    /**
+     * Side a
+     */
     private int a;
-    /** Side b */
+    /**
+     * Side b
+     */
     private int b;
-    /** Side c */
+    /**
+     * Side c
+     */
     private int c;
-    /** Side d */
+    /**
+     * Side d
+     */
     private int d;
 
     /**
      * Base constructor
      */
-    public Quadrilateral() {
-        a = 1;
-        b = 3;
-        c = 8;
-        d = 9;
+    private Quadrilateral() {
     }
-
 
     /**
      * @param a side a
@@ -31,54 +36,36 @@ public class Quadrilateral implements Polygon {
      * @param c side c
      * @param d side d
      */
-    public Quadrilateral(final int a, final int b, final int c, final int d) {
-        this.a = a;
-        this.b = b;
-        this.c = c;
-        this.d = d;
-    }
-
-    /**
-     * Method of determining the perimeter
-     * @return p
-     */
-    public int getP() {
-        int p = a + b + c + d;
-        return p;
-    }
-
-    /**
-     * Method for determining the existence of a quadrilateral
-     * @return true if the triangle exists
-     * @throws QuadrilateralException exception for Quadrilateral
-     */
-    public boolean getExist() throws QuadrilateralException {
-        int e = a + b + c;
-        int f = a + b + d;
-        int g = a + c + d;
-        int h = b + c + d;
-
-        if (e > d && f > c && g > b && h > a) {
-            return true;
+    public Quadrilateral(final int a, final int b, final int c, final int d) throws QuadrilateralException {
+        if (a + b + c > d && a + b + d > c && a + c + d > b && b + c + d > a) {
+            this.a = a;
+            this.b = b;
+            this.c = c;
+            this.d = d;
         } else {
             throw new QuadrilateralException("Quadrilateral doesn`t exist");
         }
     }
 
+    /**
+     * Method of determining the perimeter
+     *
+     * @return p
+     */
+    public int getPerimeter() {
+        int p = a + b + c + d;
+        return p;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        try {
-            sb.append(getExist());
-            sb.append("\n");
-            sb.append("Side a: ").append(a).append("\n");
-            sb.append("Side b: ").append(b).append("\n");
-            sb.append("Side c: ").append(c).append("\n");
-            sb.append("Side d: ").append(d).append("\n");
-            sb.append("Parimetr Quadrilateral: ").append(getP());
-        } catch (QuadrilateralException e) {
-            sb.append(e.getMessage());
-        }
+        sb.append("\n");
+        sb.append("Side a: ").append(a).append("\n");
+        sb.append("Side b: ").append(b).append("\n");
+        sb.append("Side c: ").append(c).append("\n");
+        sb.append("Side d: ").append(d).append("\n");
+        sb.append("Parimeter Quadrilateral: ").append(getPerimeter());
         return sb.toString();
-        }
+    }
 }

@@ -1,5 +1,6 @@
 package it.sevenbits.figures;
 
+import it.sevenbits.exceptions.TriangleException;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -10,18 +11,17 @@ public class TriangleTest {
     private static Triangle triangle;
 
     @BeforeClass
-    public static void setup(){
-        triangle = new Triangle();
+    public static void setup() throws TriangleException {
     }
 
     @Test
-    public void testGetExist() throws TriangleException {
-        boolean result = triangle.getExist();
-        assertTrue(result);
+    public void testGetP() throws TriangleException {
+        triangle = new Triangle(1,1,1);
+        assertEquals(3, triangle.getPerimeter());
     }
 
-    @Test
-    public void testGetP() {
-        assertEquals(3, triangle.getP());
+    @Test(expected = TriangleException.class)
+    public void testPairSummaterException() throws TriangleException {
+        triangle = new Triangle(1,1,6);
     }
 }

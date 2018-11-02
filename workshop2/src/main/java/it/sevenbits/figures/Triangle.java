@@ -1,5 +1,7 @@
 package it.sevenbits.figures;
 
+import it.sevenbits.exceptions.TriangleException;
+
 /**
  * Class Triangle
  */
@@ -14,10 +16,7 @@ public class Triangle implements Polygon {
     /**
      * Base constructor
      */
-    public Triangle() {
-        a = 1;
-        b = 1;
-        c = 1;
+    private Triangle() {
     }
 
     /**
@@ -25,24 +24,11 @@ public class Triangle implements Polygon {
      * @param b side b
      * @param c side c
      */
-    public Triangle(final int a, final int b, final int c) {
-        this.a = a;
-        this.b = b;
-        this.c = c;
-    }
-
-    /**
-     * Method for determining the existence of a triangle
-     * @return true if the triangle exists
-     * @throws TriangleException exception for Triangle
-     */
-    public boolean getExist() throws TriangleException {
-        int d = a + b;
-        int e = a + c;
-        int f = b + c;
-
-        if (d > c && e > b && f > a) {
-            return true;
+    public Triangle(final int a, final int b, final int c) throws TriangleException {
+        if (a + b > c && a + c > b && b + c > a) {
+            this.a = a;
+            this.b = b;
+            this.c = c;
         } else {
             throw new TriangleException("Triangle doesn`t exist");
         }
@@ -52,7 +38,7 @@ public class Triangle implements Polygon {
      * Method of determining the perimeter
      * @return p
      */
-    public int getP() {
+    public int getPerimeter() {
 
         int p = a + b + c;
         return p;
@@ -61,17 +47,10 @@ public class Triangle implements Polygon {
     @Override
     public String toString()  {
         StringBuilder sb = new StringBuilder();
-        try {
-            sb.append(getExist());
-            sb.append("\n");
             sb.append("Side a: ").append(a).append("\n");
             sb.append("Side b: ").append(b).append("\n");
             sb.append("Side c: ").append(c).append("\n");
-            sb.append("Perimetr triangle: ").append(getP());
-
-        } catch (TriangleException e) {
-            sb.append(e.getMessage());
-        }
+            sb.append("Perimetr triangle: ").append(getPerimeter());
         return sb.toString();
     }
 }

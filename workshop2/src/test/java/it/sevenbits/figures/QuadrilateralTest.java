@@ -1,5 +1,6 @@
 package it.sevenbits.figures;
 
+import it.sevenbits.exceptions.QuadrilateralException;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -9,18 +10,13 @@ public class QuadrilateralTest {
     private static Quadrilateral quadrilateral;
 
     @BeforeClass
-    public static void setup(){
-        quadrilateral = new Quadrilateral();
+    public static void setup() throws QuadrilateralException {
+        quadrilateral = new Quadrilateral(1,1,1,1);
     }
 
-    @Test
-    public void testGetExist() throws QuadrilateralException {
-        boolean result = quadrilateral.getExist();
-        assertTrue(result);
-    }
 
     @Test
     public void testGetP() {
-        assertEquals(21, quadrilateral.getP());
+        assertEquals(4, quadrilateral.getPerimeter());
     }
 }

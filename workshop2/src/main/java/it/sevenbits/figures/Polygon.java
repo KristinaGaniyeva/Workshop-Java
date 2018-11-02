@@ -8,5 +8,5 @@ public interface Polygon {
      * Method of determining the perimeter
      * @return p
      */
-    int getP();
+    int getPerimeter();
 }

@@ -1,4 +1,4 @@
-package it.sevenbits.figures;
+package it.sevenbits.exceptions;
 
 /**
  * Class with exception for Quadrilateral
