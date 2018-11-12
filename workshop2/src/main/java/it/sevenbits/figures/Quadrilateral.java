@@ -53,8 +53,7 @@ public class Quadrilateral implements Polygon {
      * @return p
      */
     public int getPerimeter() {
-        int p = a + b + c + d;
-        return p;
+        return a + b + c + d;
     }
 
     @Override

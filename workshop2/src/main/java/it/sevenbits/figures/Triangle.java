@@ -39,9 +39,7 @@ public class Triangle implements Polygon {
      * @return p
      */
     public int getPerimeter() {
-
-        int p = a + b + c;
-        return p;
+        return a + b + c;
     }
 
     @Override

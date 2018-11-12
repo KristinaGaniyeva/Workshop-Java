@@ -16,7 +16,7 @@ public class QuadrilateralTest {
 
 
     @Test
-    public void testGetP() {
+    public void testGetPerimeter() {
         assertEquals(4, quadrilateral.getPerimeter());
     }
 }

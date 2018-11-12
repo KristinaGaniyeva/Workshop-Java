@@ -1,8 +1,7 @@
 package it.sevenbits;
 
-import it.sevenbits.exceptions.QuadrilateralException;
 import it.sevenbits.exceptions.TriangleException;
-import it.sevenbits.figures.Quadrilateral;
+import it.sevenbits.figures.Polygon;
 import it.sevenbits.figures.Triangle;
 
 /**
@@ -13,8 +12,13 @@ public class Main {
      * Main function for app
      * @param args - console arguments
      */
-    public static void main(final String [] args) throws TriangleException, QuadrilateralException {
-        Quadrilateral triangle = new Quadrilateral(1,1,1,1);
-        System.out.println(triangle.toString());
+    public static void main(final String [] args) {
+        try {
+            Polygon triangle = new Triangle(1, 1, 1);
+            System.out.println(triangle.toString());
+        } catch (TriangleException e) {
+            System.out.println("Triangle doesn`t exist");
+        }
+
     }
 }
