@@ -5,7 +5,7 @@ import it.sevenbits.exceptions.QuadrilateralException;
 /**
  * Class Quadrilateral
  */
-public class Quadrilateral implements Polygon {
+public class Quadrilateral implements IPolygon {
 
     /**
      * Side a
@@ -35,6 +35,7 @@ public class Quadrilateral implements Polygon {
      * @param b side b
      * @param c side c
      * @param d side d
+     * @exception QuadrilateralException exception
      */
     public Quadrilateral(final int a, final int b, final int c, final int d) throws QuadrilateralException {
         if (a + b + c > d && a + b + d > c && a + c + d > b && b + c + d > a) {
@@ -59,12 +60,11 @@ public class Quadrilateral implements Polygon {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("\n");
         sb.append("Side a: ").append(a).append("\n");
         sb.append("Side b: ").append(b).append("\n");
         sb.append("Side c: ").append(c).append("\n");
         sb.append("Side d: ").append(d).append("\n");
-        sb.append("Parimeter Quadrilateral: ").append(getPerimeter());
+        sb.append("Perimeter Quadrilateral: ").append(getPerimeter()).append("\n");
         return sb.toString();
     }
 }

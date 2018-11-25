@@ -5,7 +5,7 @@ import it.sevenbits.exceptions.TriangleException;
 /**
  * Class Triangle
  */
-public class Triangle implements Polygon {
+public class Triangle implements IPolygon {
     /** Side a */
     private int a;
     /** Side b */
@@ -23,6 +23,7 @@ public class Triangle implements Polygon {
      * @param a side a
      * @param b side b
      * @param c side c
+     * @exception TriangleException exception
      */
     public Triangle(final int a, final int b, final int c) throws TriangleException {
         if (a + b > c && a + c > b && b + c > a) {
@@ -48,7 +49,7 @@ public class Triangle implements Polygon {
             sb.append("Side a: ").append(a).append("\n");
             sb.append("Side b: ").append(b).append("\n");
             sb.append("Side c: ").append(c).append("\n");
-            sb.append("Perimetr triangle: ").append(getPerimeter());
+            sb.append("Perimeter Triangle: ").append(getPerimeter()).append("\n");
         return sb.toString();
     }
 }
