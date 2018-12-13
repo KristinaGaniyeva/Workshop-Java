@@ -11,12 +11,20 @@ import static org.junit.Assert.*;
 public class SwapTest {
 
     @Test
-    public void doSwap() {
+    public void testDoSwap() {
         List<String> list = new ArrayList<>(Arrays.asList("ax", "bx", "cx", "cy", "by", "ay", "aaa", "azz"));
         Swap swap = new Swap();
-        System.out.println(swap.doSwap(list));
+        List<String> result = new ArrayList<>(Arrays.asList("ay", "by", "cy", "cx", "bx", "ax", "aaa", "azz"));
 
-//        List<String> result = new ArrayList<>(Arrays.asList("ay", "by", "cy", "cx", "bx", "ax", "aaa", "azz"));
-//        assertEquals(result, swap.doSwap(list));
+        assertEquals(result, swap.doSwap(list));
+    }
+
+    @Test
+    public void testDoSwapDouble() {
+        List<String> list = new ArrayList<>(Arrays.asList("aaa", "bx", "ay", "by", "ai", "aaa", "bx", "by"));
+        Swap swap = new Swap();
+        List<String> result = new ArrayList<>(Arrays.asList("ay", "by", "aaa", "bx", "ai", "aaa", "bx", "by"));
+
+        assertEquals(result, swap.doSwap(list));
     }
 }
