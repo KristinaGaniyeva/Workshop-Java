@@ -12,9 +12,9 @@ public class SwapTest {
 
     @Test
     public void testDoSwap() {
-        List<String> list = new ArrayList<>(Arrays.asList("ax", "bx", "cx", "cy", "by", "ay", "aaa", "azz"));
+        List<String> list = new ArrayList<>(Arrays.asList("ax", "bx", "ay", "by"));
         Swap swap = new Swap();
-        List<String> result = new ArrayList<>(Arrays.asList("ay", "by", "cy", "cx", "bx", "ax", "aaa", "azz"));
+        List<String> result = new ArrayList<>(Arrays.asList("ay", "by", "ax", "bx"));
 
         assertEquals(result, swap.doSwap(list));
     }

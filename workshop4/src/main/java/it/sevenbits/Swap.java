@@ -1,8 +1,20 @@
 package it.sevenbits;
 
-import java.util.*;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * Class Swap
+ */
 public class Swap {
+    /**
+     * Class for swap element
+     * @param list List
+     * @return List
+     */
     public List<String> doSwap(final List<String> list) {
         Map<Character, Integer> hashMap = new HashMap<>();
         String str;
